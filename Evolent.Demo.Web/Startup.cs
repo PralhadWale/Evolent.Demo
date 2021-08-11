@@ -19,6 +19,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Microsoft.OpenApi.Models;
 
 namespace Evolent.Demo.Web
 {
@@ -51,7 +52,16 @@ namespace Evolent.Demo.Web
                    
             );
 
-            
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Evolent Demo API",
+                    Version = "v1",
+                    Description = "Evolent Contact Management API.",
+                });
+            });
 
             services.AddSingleton(Serilog.Log.Logger);
 
@@ -73,6 +83,16 @@ namespace Evolent.Demo.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Evolent Demo API V1");
+
+                // To serve SwaggerUI at application's root page, set the RoutePrefix property to an empty string.
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseCors(builder =>
             {
