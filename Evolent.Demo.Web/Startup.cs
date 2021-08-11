@@ -37,27 +37,12 @@ namespace Evolent.Demo.Web
         {
            
 
-            services.AddControllersWithViews()
-                .AddNewtonsoftJson(options =>
-                  {
-                      options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                      options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                      //options.SerializerSettings.DateFormatString = "yyyy-MMM-dd HH:mm:ss";
-
-                      // This prevents the json serializer from parsing dates
-                      options.SerializerSettings.DateParseHandling = DateParseHandling.DateTime;
-                      // This changes how the timezone is converted - RoundtripKind keeps the timezone that was provided and doesn't convert it
-                      options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
-                  }
-                   
-            );
-
-
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Evolent Demo API",
+                    Title = "EvolentAPI",
                     Version = "v1",
                     Description = "Evolent Contact Management API.",
                 });
@@ -88,11 +73,10 @@ namespace Evolent.Demo.Web
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Evolent Demo API V1");
-
-                // To serve SwaggerUI at application's root page, set the RoutePrefix property to an empty string.
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EvolentAPI");
                 c.RoutePrefix = string.Empty;
             });
+
 
             app.UseCors(builder =>
             {
