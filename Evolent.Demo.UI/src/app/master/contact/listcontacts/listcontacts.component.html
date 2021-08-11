@@ -1,0 +1,32 @@
+<div class="panel panel-default" style="margin: 10px;" >
+	<div class="panel-heading" style="margin: 10px;">Contact List</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Phone</th>
+					<th scope="col">Email</th>
+					<th scope="col">Status</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let contact of contactList">
+					<td>{{contact.FirstName}} {{contact.LastName}}</td>
+					<td>{{contact.Email}}</td>
+					<td>{{contact.PhoneNumber}}</td>
+					<td>{{ contact.IsActive | ActiveInactive }}</td>
+					<td>
+						<button type="button" class="btn btn-success mr-1"
+							(click)="ViewContact(contact.ContactId)">Edit</button>
+						<button type="button" class="btn btn-danger"
+							(click)="DeleteContact(contact.ContactId)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer"><h5 *ngIf="contactList.length==0" class="text-center">No Contact Found</h5></div>
+</div>
+
