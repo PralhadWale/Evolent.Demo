@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evolent.Demo.Data", "Evolen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evolent.Demo.Domain", "Evolent.Demo.Domain\Evolent.Demo.Domain.csproj", "{47E278DF-40BD-415C-B53E-93FC730D028A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evolent.Demo.Test", "Evolent.Demo.Test\Evolent.Demo.Test.csproj", "{67C77DF9-4AC4-4983-9F16-71A33EC02813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{47E278DF-40BD-415C-B53E-93FC730D028A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E278DF-40BD-415C-B53E-93FC730D028A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E278DF-40BD-415C-B53E-93FC730D028A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C77DF9-4AC4-4983-9F16-71A33EC02813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C77DF9-4AC4-4983-9F16-71A33EC02813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C77DF9-4AC4-4983-9F16-71A33EC02813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C77DF9-4AC4-4983-9F16-71A33EC02813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
